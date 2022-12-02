@@ -1,4 +1,4 @@
-name: 'Semver Release'
+name: 'Semver Release 1'
 description: 'Automatically create Semver compliant tags or releases based on PR labels'
 author: 'Kévin Gomez'
 
