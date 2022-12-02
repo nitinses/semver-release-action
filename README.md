@@ -16,6 +16,11 @@ additional setup is required.
 
 **Required** Branch to tag. Default `"master"`.
 
+### `generate_release_notes`
+
+**Required** Auto-generate release notes based on .github/release.yml. Default `"false"`; 
+Allowed values `true, false`
+
 ### `release_strategy`
 
 **Required** Release strategy. Default `"release"` (`release`: creates a GitHub
@@ -66,3 +71,6 @@ jobs:
 ## License
 
 This library is under the [MIT](LICENSE.md) license.
+
+
+

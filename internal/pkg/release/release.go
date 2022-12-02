@@ -47,8 +47,6 @@ func Command() *cobra.Command {
 func execute(cmd *cobra.Command, releaseType string, args []string) {
 	parts := strings.Split(args[0], "/")
 	autoReleaseNotes,_ := strconv.ParseBool(args[4])
-	fmt.Println("Argument value: ", args[4] )
-	fmt.Println("Execute command: ", autoReleaseNotes )
 	repo := repository{
 		owner: parts[0],
 		name:  parts[1],

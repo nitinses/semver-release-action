@@ -37,7 +37,7 @@ outputs:
 
 runs:
   using: 'docker'
-  image: 'docker://nitinses7/semver-release-action:v1.0.2'
+  image: 'docker://kphoen/semver-release-action:v1.3.2'
   args:
     - ${{ inputs.release_branch }}
     - ${{ inputs.release_strategy }}
