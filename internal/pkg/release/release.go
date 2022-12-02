@@ -47,6 +47,8 @@ func Command() *cobra.Command {
 func execute(cmd *cobra.Command, releaseType string, args []string) {
 	parts := strings.Split(args[0], "/")
 	autoReleaseNotes,_ := strconv.ParseBool(args[4])
+	fmt.Println("Argument value: ", args[4] )
+	fmt.Println("Execute command: ", autoReleaseNotes )
 	repo := repository{
 		owner: parts[0],
 		name:  parts[1],
@@ -94,13 +96,15 @@ func createLightweightTag(ctx context.Context, client *github.Client, repo repos
 }
 
 func createGithubRelease(ctx context.Context, client *github.Client, repo repository, release releaseDetails) error {
+	fmt.Println("Github release function : ", release)
+	fmt.Println("Github release function : ", &release.autoReleaseNotes)
 	_, _, err := client.Repositories.CreateRelease(ctx, repo.owner, repo.name, &github.RepositoryRelease{
 		Name:            &release.version,
 		TagName:         &release.version,
 		TargetCommitish: &release.target,
 		Draft:           github.Bool(false),
 		Prerelease:      github.Bool(false),
-		GenerateReleaseNotes: &release.autoReleaseNotes,
+		GenerateReleaseNotes: github.Bool(release.autoReleaseNotes),
 	})
 
 	return err
