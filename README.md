@@ -60,7 +60,7 @@ jobs:
     
     steps:
       - name: Tag
-        uses: K-Phoen/semver-release-action@master
+        uses: nitinses/semver-release-action@1.0.9
         with:
           release_branch: master
         env:
